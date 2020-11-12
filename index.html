@@ -26,9 +26,14 @@
       const counter = document.querySelector(".counter");
       const decrement = document.querySelector(".decrement");
       const increment = document.querySelector(".increment");
-      console.log(counter);
+
       let value = 0;
-      counter.innerHTML = value;
+
+      const renderValue = (value) => {
+        counter.innerHTML = value;
+      };
+
+      renderValue(value);
 
       decrement.addEventListener("click", decreaseCounter);
       increment.addEventListener("click", increaseCounter);
@@ -36,18 +41,20 @@
       function decreaseCounter() {
         if (value > 0) {
           value = value - 1;
-          counter.innerHTML = value;
+          renderValue(value);
         }
-        return;
       }
+
       function increaseCounter() {
-        console.log(value < 10);
         if (value < 10) {
           value = value + 1;
-          counter.innerHTML = value;
+          renderValue(value);
         }
-        return;
       }
+
+      // function renderValue(value) {
+      //   counter.innerHTML = value;
+      // }
     </script>
   </body>
 </html>
